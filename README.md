@@ -1,10 +1,8 @@
 Useful information for CKAD certificatoin
 
-# Commands
+### Core Info
 
-# Useful info
-
-### NodePort Service:
+### NodePort Service
 
 * targetPort: port in the POD where the application is listening for connections
 * port: Port in the service
@@ -18,4 +16,4 @@ kubectl get service flask -o yaml >> flask
 kubectl apply -f flask
 ```
 
-![Nodeport](nodeport.jpg?raw=true "Nodeport")
+![Nodeport](docs/nodeport.jpg?raw=true "Nodeport")
