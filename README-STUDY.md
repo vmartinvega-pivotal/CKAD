@@ -12,14 +12,33 @@ I'm giving a 90 minute presentation on passing the CKAD and CKA in Kansas City. 
 - [Excellent CKAD Exercises to complement this guide](https://github.com/dgkanatsios/CKAD-exercises)
 - [TMUX Cheat Sheet - TMUX is useful, especially for CKA](https://gist.github.com/MohamedAlaa/2961058)
 
+## Default namespace
+
+How to set a default namespace for "kubectl"
+
+Kubernetes uses namespaces. If you don’t specify any, it will use the default namespace.
+You can use a “Context” if you want all your kubectl commands to use the same namespace.
+
+$ kubectl config set-context kube-cluster-ctx --namespace=my-namespace --cluster=cluster --user=user
+Context "kube-cluster-ctx" created.
+You have to also start using the context once it’s created like so:
+
+$ kubectl config use-context kube-cluster-ctx
+Switched to context "kube-cluster-ctx".
+All subsequent kubectl commands will run in my-namespace.
+
+## Install Auto Completion for kubectl
+
+```
+sudo apt install linuxbrew-wrapper
+brew install bash-completion
+nano ~/.bashrc
+source <(kubectl completion bash)
+source ~/.bashrc
+```
 
 ## Current Kubernetes Version (EXAM)
 Version: 1.11.1
-
-## Important vi Tips
-
-  - 'dG' - Deletes contents from cursor to end of file. This is very useful when editing YAML files.
-  - 'ZZ' - Save and exit quickly.
 
 ## kubectl Tips
 To set nano as your editor for 'kubectl edit'
