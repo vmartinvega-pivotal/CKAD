@@ -16,7 +16,23 @@ WORKERS (MINIONS) - Los contenedores son hosted
 MASTER
  * kube api server (si tiene esto le hace ser master)
  * etcd
- * controller
+ * controller (procesos que monitorizan los objectos de kubernetes y responden accordingly, por ejemplo replication controller(old) replica-set (new))
  * scheduller
 
  KUBE CONTROL TOOL (kubectl) command line to interact with kubernetes
+
+ PODS.
+
+ Lo normal es tener un contenedor por POD, y solo hay un contenedor de una clase en un POD pero puede haber mas contenedores de otra clase en el POD,como por ejemplo un contenedor que realiza alguna operacion para un contenedor (helper container). Se pueden comunicar el uno con el otro por localhost, ya que comparten la misma red
+
+ Todos los objetos en kubernetes (yaml files) tienen cuatro secciones:
+ * apiVersion: (specific to what we are creating)
+ * kind: 
+ * metadata:
+     name:
+     labels:
+       
+ * spec: (specifications)
+
+ ReplicaSet
+ * la parte de especificaciones tiene tres partes principales: template (saber que pod hacer), replicas para saber cuantas debe mantener y selector para saber que pods elegir y monitorizar.  
