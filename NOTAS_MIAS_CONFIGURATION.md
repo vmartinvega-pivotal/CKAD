@@ -214,3 +214,11 @@ tolerations:
   operator: "Exists"
   effect: "NoSchedule"
 ```
+
+**LAS TOLERATIONS VAN ENTRE DOBES COMILLAS**
+
+Los taints and tolerations no hacen que un pod ejecute en un node, si no que previenen que ciertos pods que no cumplen la tolerancia al taint sean ejecutados en ese nodo, pero si tienen la tolerancia pueden estar en otro nodo, no el que tiene el taint. !!!! OJO !!!!
+
+Para lo contrario, es decir, que un POD ejecute en un nodo esta el **affinity**
+
+Finalmente cabe destacar que los master nodes al tiempo de instalacion y configuracion se les pone un taint automaticamente pare prevenir que los PODs sean alojados alli.
