@@ -222,3 +222,25 @@ Los taints and tolerations no hacen que un pod ejecute en un node, si no que pre
 Para lo contrario, es decir, que un POD ejecute en un nodo esta el **affinity**
 
 Finalmente cabe destacar que los master nodes al tiempo de instalacion y configuracion se les pone un taint automaticamente pare prevenir que los PODs sean alojados alli.
+
+### Node Selectors
+Indica en que nodos se puede ejecutar un POD. Para ello primero hay que labelar los nodos
+```
+kubectl label nodes <node-name> <label-key>=<label-value>
+```
+```
+kubectl label nodes <node-name> <label-key>=<label-value>
+```
+Y posteriormente se tiene que poner el nodeSelector al POD
+```
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: IfNotPresent
+  nodeSelector:
+    disktype: ssd
+```
+¡¡ El nodeSelector tiene limitaciones, porque por ejemplo no podemos poner en cualquier node que no sea SMALL !!, para eso esta el Node Affinity 
+
+### Node Affinity
